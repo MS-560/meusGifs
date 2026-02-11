@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Galeria de GIFs</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      color: #94a3b8;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,.3);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform .2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    button {
+      background: #38bdf8;
+      border: none;
+      border-radius: 10px;
+      padding: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #64748b;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📸 Minha Galeria de GIFs</h1>
+  <p>Clique em "Copiar link" para enviar no bate-papo UOL</p>
+
+  <div class="gallery">
+
+    <!-- EXEMPLO DE GIF - troque o nome do arquivo pelo seu -->
+    <div class="card">
+      <img src="dançando.gif" alt="GIF dançando">
+      <button onclick="copyLink('dançando.gif')">Copiar link</button>
+    </div>
+
+    <div class="card">
+      <img src="beijo.gif" alt="GIF beijo">
+      <button onclick="copyLink('beijo.gif')">Copiar link</button>
+    </div>
+
+    <div class="card">
+      <img src="risada.gif" alt="GIF risada">
+      <button onclick="copyLink('risada.gif')">Copiar link</button>
+    </div>
+
+  </div>
+
+  <footer>
+    Meus GIFs hospedados grátis no GitHub Pages
+  </footer>
+
+  <script>
+    function copyLink(file) {
+      const baseUrl = window.location.href.replace('index.html', '')
+      const fullLink = baseUrl + file
+
+      navigator.clipboard.writeText(fullLink)
+      alert('Link copiado!\n' + fullLink)
+    }
+  </script>
+
+</body>
+</html>
 
